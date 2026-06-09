@@ -1,65 +1,89 @@
 import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 
 export default function Home() {
+  const services = [
+    { id: "01", title: "Artificial Intelligence" },
+    { id: "02", title: "Data Science" },
+    { id: "03", title: "Data Enginner" },
+    { id: "04", title: "Cloud & Deployment" },
+    { id: "05", title: "Full Stack Development" },
+  ];
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
+    <main className="portfolio-frame">
+      <div className="ambient-glow" />
+
+      <header className="header">
+        <a href="#" className="logo">
+          Portfolio
+        </a>
+        <nav className="nav">
+          <a href="#about" className="nav-link">
+            About Me
           </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
+          <a href="#services" className="nav-link">
+            Projects
           </a>
+          <a href="#works" className="nav-link">
+            Skills
+          </a>
+          <a href="#blogs" className="nav-link">
+            Blogs
+          </a>
+        </nav>
+        <a href="#contact" className="btn-touch">
+          Get in touch
+          <span className="btn-icon-wrapper">
+            <ArrowUpRight size={16} strokeWidth={2.5} />
+          </span>
+        </a>
+      </header>
+
+      {/* Hero Section */}
+      <div className="hero-content">
+        <div className="hero-image-container">
+          <Image
+            src="/profile.png"
+            alt="Anurag Kumar"
+            width={600}
+            height={600}
+            className="hero-image"
+            priority
+          />
         </div>
-      </main>
-    </div>
+
+        {/* Foreground Content  */}
+        <div className="hero-main-row">
+          <div className="hero-text-block">
+            <span className="hero-intro">Hey&apos; I Am</span>
+            <h1 className="hero-title">
+              <span>Anurag</span>
+              <span>Kumar</span>
+            </h1>
+          </div>
+
+          {/* Description & Action block */}
+          <div className="hero-desc-block">
+            <p className="hero-paragraph">
+              Portfolio of Anurag — Data Scientist & AI Engineer building intelligent systems, computer vision solutions, and scalable data-driven applications.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Service Badges */}
+      <footer className="services-footer">
+        {services.map((service) => (
+          <div key={service.id} className="service-item">
+            <div className="service-number-row">
+              <span className="service-accent" />
+              <span>{service.id}</span>
+            </div>
+            <span className="service-title">{service.title}</span>
+          </div>
+        ))}
+      </footer>
+    </main>
   );
 }
