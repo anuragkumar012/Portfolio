@@ -1,11 +1,11 @@
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import Header from "./components/Header";
 
 export default function Home() {
   const services = [
     { id: "01", title: "Artificial Intelligence" },
     { id: "02", title: "Data Science" },
-    { id: "03", title: "Data Enginner" },
+    { id: "03", title: "Data Engineering" },
     { id: "04", title: "Cloud & Deployment" },
     { id: "05", title: "Full Stack Development" },
   ];
@@ -14,31 +14,7 @@ export default function Home() {
     <main className="portfolio-frame">
       <div className="ambient-glow" />
 
-      <header className="header">
-        <a href="#" className="logo">
-          Portfolio
-        </a>
-        <nav className="nav">
-          <a href="#about" className="nav-link">
-            About Me
-          </a>
-          <a href="#services" className="nav-link">
-            Projects
-          </a>
-          <a href="#works" className="nav-link">
-            Skills
-          </a>
-          <a href="#blogs" className="nav-link">
-            Blogs
-          </a>
-        </nav>
-        <a href="#contact" className="btn-touch">
-          Get in touch
-          <span className="btn-icon-wrapper">
-            <ArrowUpRight size={16} strokeWidth={2.5} />
-          </span>
-        </a>
-      </header>
+      <Header />
 
       {/* Hero Section */}
       <div className="hero-content">
